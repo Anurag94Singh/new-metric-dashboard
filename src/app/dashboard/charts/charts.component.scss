@@ -1,0 +1,33 @@
+:host {
+    .filters-container {
+        background-color: transparent;
+        padding: 1rem;
+        padding-bottom: 0rem;
+        ::ng-deep {
+            .mat-form-field-underline {
+                display: none !important;
+            }
+            .mat-form-field-wrapper {
+                padding-bottom: 0px !important;
+            }
+            mat-card {
+                mat-form-field {
+                    margin-right: 0.5rem;
+                }
+            }
+        }
+    }
+    .charts-container {
+        background-color: transparent;
+        padding: 1rem;
+        padding-top: 0.5rem;
+        height: calc(100% - 2rem);
+        mat-card {
+            height: 50%;
+            margin: 0.5rem 0rem;
+            mat-card-content {
+                height: 100%;
+            }
+        }
+    }
+}

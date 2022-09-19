@@ -1,0 +1,54 @@
+<section class="filters-container">
+  <mat-card class="filters">
+    <mat-form-field appearance="fill">
+      <mat-label>Series</mat-label>
+      <mat-select [formControl]="seriesSelected" multiple (selectionChange)="onSeriesSelect()">
+        <mat-option *ngFor="let series of seriesList" [value]="series">{{series}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Enter a date range</mat-label>
+      <mat-date-range-input [rangePicker]="picker">
+        <input matStartDate placeholder="Start date" #start>
+        <input matEndDate placeholder="End date" #end (dateChange)="filterByDate(start.value, end.value)">
+      </mat-date-range-input>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-date-range-picker #picker></mat-date-range-picker>
+    </mat-form-field>
+  </mat-card>
+</section>
+<section class="charts-container">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>
+        {{ chartTitleEveryMilli }}
+      </mat-card-title>
+      <mat-divider></mat-divider>
+    </mat-card-header>
+    <mat-card-content>
+      <ngx-charts-line-chart [scheme]="'cool'" [results]="metricData" [gradient]="gradient" [xAxis]="showXAxis"
+        [yAxis]="showYAxis" [legend]="showLegend" [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel"
+        [xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel" [timeline]="true"  [trimXAxisTicks]="trimXAxisTicks"
+        [maxXAxisTickLength]="10"
+        (select)="onSelect($event, 'metric')">
+      </ngx-charts-line-chart>
+
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>
+        {{ chartTitleEverySecond }}
+      </mat-card-title>
+      <mat-divider></mat-divider>
+    </mat-card-header>
+    <mat-card-content>
+      <ngx-charts-line-chart [scheme]="'cool'" [results]="aggMetricData" [gradient]="gradient" [xAxis]="showXAxis"
+        [yAxis]="showYAxis" [legend]="showLegend" [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel"
+        [xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel" [autoScale]="autoScale" [timeline]="true"
+        (select)="onSelect($event, 'agg-metric')">
+      </ngx-charts-line-chart>
+
+    </mat-card-content>
+  </mat-card>
+</section>
