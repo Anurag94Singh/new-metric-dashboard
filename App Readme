@@ -1,0 +1,9 @@
+This app has two screens one is home and dashboard and both are feature moudules.
+Every chart has click interaction and on click of home screen charts table will be filtered.
+On click of table series name it will be redirected to dashboard with that series selected data.
+Dashboard screen has two line charts and two filters date range and series selection.
+Dashboard has interacton on charts which filters other chart  based on series name.
+We can handle the large datsets with inbuilt function to show based on 5/10/20 seconds data instead of showing at milliseconds data at charts.
+We have one subject togleDrawer for openinga nd closing the side nav.
+Added functionalities can server side pagination on table and charts inbuilt functions to change the granulaity of data.
+Ngx-charts giving some issues with zoom but similar can be done as i have done for date range filter.
